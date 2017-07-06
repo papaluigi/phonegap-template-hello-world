@@ -36,7 +36,7 @@ function writeFile() {
             fileWriter.write(blob);
          }, errorCallback);
       }, errorCallback);
-   }
+   };
 
    function errorCallback(error) {
       alert("ERROR: " + error.code)
