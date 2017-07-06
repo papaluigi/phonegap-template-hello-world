@@ -13,7 +13,7 @@ function createFile() {
       alert("ERROR: " + error.code)
    }
 	
-}
+};
 
 function writeFile() {
    var type = window.TEMPORARY;
@@ -36,12 +36,12 @@ function writeFile() {
             fileWriter.write(blob);
          }, errorCallback);
       }, errorCallback);
-   }
+   };
 
    function errorCallback(error) {
       alert("ERROR: " + error.code)
    }
-}
+};
 
 function readFile() {
    var type = window.TEMPORARY;
@@ -66,7 +66,7 @@ function readFile() {
    function errorCallback(error) {
       alert("ERROR: " + error.code)
    }
-}
+};
 
 function removeFile() {
    var type = window.TEMPORARY;
@@ -85,5 +85,5 @@ function removeFile() {
    function errorCallback(error) {
       alert("ERROR: " + error.code)
    }
-}
+};
 
