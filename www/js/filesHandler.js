@@ -118,13 +118,13 @@ function uploadFile() {
  
         var dt = new Date();
         var now = dt.getTime();
-        var evtid = $(this).serialize() + '&time=' + now.toString();
+        //var evtid = $(this).serialize() + '&time=' + now.toString();
  
 		var params = {};
 		params.name = device.uuid;
 		params.lon = longitude;
 		params.lat = latitude;
-		params.evtid = evtid;
+		params.evtid = now;
 			
 		//params.value1 = "test";
 		//params.value2 = "param";
