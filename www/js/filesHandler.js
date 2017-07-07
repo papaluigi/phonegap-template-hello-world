@@ -113,15 +113,24 @@ function uploadFile() {
 		options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
 		options.mimeType = "text/plain";
  
+        var latitude = document.getElementById("latitude").value;
+		var longitude = document.getElementById("longitude").value;
+ 
 		var params = {};
-		params.value1 = "test";
-		params.value2 = "param";
+		params.name = device.uuid;
+		params.lon = longitude;
+		params.lat = latitude;
+		params.evtid = "EVT1";
+			
+		//params.value1 = "test";
+		//params.value2 = "param";
  
 		options.params = params;
  
 		var ft = new FileTransfer();
 		// SERVER must be a URL that can handle the request, like 
 		// http://some.server.com/upload.php 
+		
 		ft.upload(fileURL, encodeURI("http://posttestserver.com/post.php"), success, fail, options);
 		}, errorCallback);
    }
@@ -130,3 +139,27 @@ function uploadFile() {
       alert("ERROR: " + error.code)
    }
 };
+
+function downloadFile() {
+   var fileTransfer = new FileTransfer();
+   var uri = encodeURI("http://s14.postimg.org/i8qvaxyup/bitcoin1.jpg");
+   var fileURL =  "///storage/emulated/0/DCIM/myFile";
+
+   fileTransfer.download(
+      uri, fileURL, function(entry) {
+         console.log("download complete: " + entry.toURL());
+      },
+		
+      function(error) {
+         console.log("download error source " + error.source);
+         console.log("download error target " + error.target);
+         console.log("download error code" + error.code);
+      },
+		
+      false, {
+         headers: {
+            "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+         }
+      }
+   );
+}
