@@ -100,6 +100,7 @@ function uploadFile() {
 		var success = function (r) {
         console.log("Successful upload...");
         console.log("Code = " + r.responseCode);
+		alert("Transfer Successful: " + r.response);
         // displayFileData(fileEntry.fullPath + " (content uploaded to server)"); 
 		}
  
