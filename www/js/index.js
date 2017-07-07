@@ -34,12 +34,6 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-		// LFG
-		document.getElementById("createFile").addEventListener("click", createFile);
-		document.getElementById("writeFile").addEventListener("click", writeFile);
-		document.getElementById("readFile").addEventListener("click", readFile);
-		document.getElementById("removeFile").addEventListener("click", removeFile);
-		// END LFG
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
