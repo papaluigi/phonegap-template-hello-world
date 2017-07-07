@@ -116,11 +116,15 @@ function uploadFile() {
         var latitude = document.getElementById("latitude").value;
 		var longitude = document.getElementById("longitude").value;
  
+        var dt = new Date();
+        var now = dt.getTime();
+        var evtid = $(this).serialize() + '&time=' + now.toString();
+ 
 		var params = {};
 		params.name = device.uuid;
 		params.lon = longitude;
 		params.lat = latitude;
-		params.evtid = "EVT1";
+		params.evtid = evtid;
 			
 		//params.value1 = "test";
 		//params.value2 = "param";
