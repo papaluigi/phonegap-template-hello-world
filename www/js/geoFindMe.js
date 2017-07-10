@@ -27,6 +27,7 @@ function geoFindMe() {
 	$.post("https://86.238.111.97/write_file.php",
         {
           name : device.uuid,
+		  //name : "LFG",
           lon: longitude,
           lat: latitude,
           evtid: timestamp
