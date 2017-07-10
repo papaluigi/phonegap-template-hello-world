@@ -23,6 +23,18 @@ function geoFindMe() {
     //img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
 
     //output.appendChild(img);
+	
+	$.post("https://86.238.111.97/write_file.php",
+        {
+          name : device.uuid,
+          lon: longitude,
+          lat: latitude,
+          evtid: timestamp
+        },
+        function(uname,status){
+            alert("Data: " + uname + "\nStatus: " + status);
+        });
+	
   };
 
   function error() {
