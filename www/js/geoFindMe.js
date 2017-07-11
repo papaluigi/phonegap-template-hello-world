@@ -34,8 +34,10 @@ function geoFindMe() {
         },
         function(uname,status){
             alert("Data: " + uname + "\nStatus: " + status);
-        });
-	
+        })
+		.fail(function(response) {
+             alert('Error: ' + response.responseText);
+             });
   };
 
   function error() {
