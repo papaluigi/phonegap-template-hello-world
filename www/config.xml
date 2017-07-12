@@ -169,4 +169,14 @@
         <allow-intent href="itms-apps:*" />
     </platform>
 	
+	<!--LFG-->
+	<gap:config-file target="*-Info.plist" parent="CFBundleURLTypes" platform="ios" >
+    <key>NSAppTransportSecurity</key>
+          <dict>
+              <key>NSAllowsArbitraryLoads</key>
+              <true/>
+          </dict>
+    </gap:config-file>
+	<!--END LFG-->
+	
 </widget>
