@@ -49,6 +49,7 @@
     <plugin name="cordova-plugin-statusbar"           source="npm" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration"           source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist"           source="npm" spec="~1.2.1" />
+	<plugin name="cordova-plugin-disable-nsapptransportsecurity"           source="npm" spec="~1.0.2" />
 
     <!-- Define app icon and splashscreen for each platform. -->
     <platform name="android">
@@ -169,7 +170,7 @@
         <allow-intent href="itms-apps:*" />
     </platform>
 	
-	<!--LFG-->
+	<!--LFG
 	<gap:config-file target="*-Info.plist" parent="CFBundleURLTypes" platform="ios" >
     <key>NSAppTransportSecurity</key>
           <dict>
@@ -177,6 +178,6 @@
               <true/>
           </dict>
     </gap:config-file>
-	<!--END LFG-->
+	END LFG-->
 	
 </widget>
