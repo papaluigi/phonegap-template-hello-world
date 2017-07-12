@@ -146,6 +146,65 @@ function uploadFile() {
    }
 };
 
+function uploadFileLFG() {
+   var type = window.TEMPORARY;
+   var size = 5*1024*1024;
+   window.requestFileSystem(type, size, successCallback, errorCallback)
+
+   function successCallback(fs) {
+      fs.root.getFile('log.txt', {}, function(fileEntry) {
+	     // !! Assumes variable fileURL contains a valid URL to a text file on the device, 
+		var fileURL = fileEntry.toURL();
+ 
+		var success = function (r) {
+        console.log("Successful upload...");
+        console.log("Code = " + r.responseCode);
+		alert("Transfer Successful: " + r.response);
+        // displayFileData(fileEntry.fullPath + " (content uploaded to server)"); 
+		}
+ 
+		var fail = function (error) {
+        alert("An error has occurred: Code = " + error.code);
+		}
+ 
+		var options = new FileUploadOptions();
+		options.fileKey = "file";
+		options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+		options.mimeType = "text/plain";
+ 
+        var latitude = document.getElementById("latitude").value;
+		var longitude = document.getElementById("longitude").value;
+		var timestamp = document.getElementById("timestamp").value;
+ 
+        //var dt = new Date();
+        //var now = dt.getTime();
+        //var evt = $(this).serialize();
+		//var evtid = $(this).serialize() + '&time=' + now.toString();
+ 
+		var params = {};
+		params.name = device.uuid;
+		params.lon = longitude;
+		params.lat = latitude;
+		params.evtid = timestamp;
+			
+		//params.value1 = "test";
+		//params.value2 = "param";
+ 
+		options.params = params;
+ 
+		var ft = new FileTransfer();
+		// SERVER must be a URL that can handle the request, like 
+		// http://some.server.com/upload.php 
+		
+		ft.upload(fileURL, encodeURI("https://86.238.111.97/write_file.php"), success, fail, options);
+		}, errorCallback);
+   }
+   
+   function errorCallback(error) {
+      alert("ERROR: " + error.code)
+   }
+};
+
 function downloadFile() {
    var fileTransfer = new FileTransfer();
    var uri = encodeURI("http://s14.postimg.org/i8qvaxyup/bitcoin1.jpg");

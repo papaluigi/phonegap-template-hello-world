@@ -24,7 +24,9 @@ function geoFindMe() {
 
     //output.appendChild(img);
 	
-	$.post("https://86.238.111.97/write_file.php",
+	uploadFileLFG();
+	
+	/* $.post("https://86.238.111.97/write_file.php",
         {
           //name : device.uuid,
 		  name : "LFG",
@@ -37,7 +39,8 @@ function geoFindMe() {
         })
 		.fail(function(response) {
              alert('Error: ' + response.responseText);
-             });
+              });
+			  */
   };
 
   function error() {
