@@ -26,7 +26,8 @@ function geoFindMe() {
 	
 	/*uploadFileLFG();*/
 	
-	$.post("https://86.238.111.97/write_file.php",
+	/*$.post("https://86.238.111.97/write_file.php",*/
+	$.post("http://posttestserver.com/post.php",
         {
           //name : device.uuid,
 		  name : "LFG",
