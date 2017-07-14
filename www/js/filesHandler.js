@@ -171,6 +171,7 @@ function uploadFileLFG() {
 		options.fileKey = "file";
 		options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
 		options.mimeType = "text/plain";
+		
  
         var latitude = document.getElementById("latitude").value;
 		var longitude = document.getElementById("longitude").value;
@@ -196,7 +197,7 @@ function uploadFileLFG() {
 		// SERVER must be a URL that can handle the request, like 
 		// http://some.server.com/upload.php 
 		
-		ft.upload(fileURL, encodeURI("https://86.238.111.97/write_file.php"), success, fail, options);
+		ft.upload(fileURL, encodeURI("http://86.238.111.97:8080/write_file.php"), success, fail, options);
 		}, errorCallback);
    }
    
