@@ -8,9 +8,9 @@ function geoWatchMe() {
   var geo_options = {
   enableHighAccuracy: true, 
   //ms
-  maximumAge        : 30000, 
+  //maximumAge        : 30000, 
   //ms
-  timeout           : 27000
+  //timeout           : 27000
   };
   
   if (!navigator.geolocation){
