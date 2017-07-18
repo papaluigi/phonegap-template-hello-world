@@ -29,11 +29,12 @@ function geoFindMe() {
 	$.post("http://86.238.111.97:8080/write_file.php",
 	/*$.post("http://posttestserver.com/post.php",*/
         {
-          //name : device.uuid,
-		  name : "LFG",
+          name : device.uuid,
+		  //name : "LFG",
           lon: longitude,
           lat: latitude,
-          evtid: timestamp
+		  ts: timestamp,
+          evtid: "SPOT"
         },
         function(uname,status){
             alert("Data: " + uname + "\nStatus: " + status);

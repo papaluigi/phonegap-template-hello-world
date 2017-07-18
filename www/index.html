@@ -58,13 +58,15 @@
         </div>
     </div>
 	<h1>
-		<button onclick="geoFindMe()">Spot my location</button><br>
-		<button onclick = "createFile()">CREATE FILE</button><br>
+		<button onclick="geoFindMe()">SPOT ME</button><br>
+		<button onclick="geoWatchMe()">START WATCHING</button>
+		<button onclick="clearWatch()">STOP WATCHING</button>
+		<!--<button onclick = "createFile()">CREATE FILE</button><br>
 		<button onclick = "writeFile()">WRITE FILE</button><br>
-		<!-- <button onclick = "readFile()">READ FILE</button><br> -->
+		<button onclick = "readFile()">READ FILE</button><br>
 		<button onclick = "removeFile()">DELETE FILE</button><br>
 		<button onclick = "uploadFile()">UPLOAD FILE</button><br>
-		<button onclick = "uploadFileLFG()">UPLOAD FILE LFG</button><br>
+		<button onclick = "uploadFileLFG()">UPLOAD FILE LFG</button><br>-->
 	</h1>
 	<p>
 		<!-- <textarea id = "textarea"></textarea><br> -->
@@ -75,10 +77,12 @@
 	<input type="hidden" id="latitude" value=""><br>
 	<input type="hidden" id="longitude" value=""><br>
 	<input type="hidden" id="timestamp" value="">
+	<input type="hidden" id="watchID" value="">
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/geoFindMe.js"></script>
+	<script type="text/javascript" src="js/geoWatchMe.js"></script>
 	<script type="text/javascript" src="js/filesHandler.js"></script>
 	<script type="text/javascript" src="js/deviceHandler.js"></script>
     <script type="text/javascript">
