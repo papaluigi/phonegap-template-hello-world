@@ -8,7 +8,7 @@ function geoWatchMe() {
   var geo_options = {
   enableHighAccuracy: true, 
   //ms
-  //maximumAge        : 30000, 
+  maximumAge        : 0, 
   //ms
   //timeout           : 27000
   };
