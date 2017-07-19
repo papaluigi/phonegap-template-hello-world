@@ -1,14 +1,17 @@
+
+
 function geoWatchMe() {
   var output = document.getElementById("out");
   var lat = document.getElementById("latitude");
   var lon = document.getElementById("longitude");
   var ts = document.getElementById("timestamp");
   var watchId = document.getElementById("watchId");
+  
 
   var geo_options = {
-  enableHighAccuracy: true, 
+  enableHighAccuracy: document.getElementById("HighAccuracy"), 
   //ms
-  maximumAge        : 0, 
+  maximumAge        : 20 * 1000, 
   //ms
   timeout           : 512 * 24 * 60 * 60 * 1000
   };
@@ -22,8 +25,9 @@ function geoWatchMe() {
     var latitude  = position.coords.latitude;
     var longitude = position.coords.longitude;
 	var timestamp = new Date(position.timestamp);
+	document.getElementById("watchId").value = id;
 	
-	watchId.value = id;
+	//watchId.value = id;
 	    
     //var name = "'.$_SESSION['name'].'";
 
@@ -49,8 +53,11 @@ function geoWatchMe() {
           evtid: "WATCH"
         },
         function(uname,status){
-           // alert("Data: " + uname + "\nStatus: " + status);
-        });
+            alert("Data: " + uname + "\nStatus: " + status);
+        })
+		.fail(function(response) {
+             alert('Error: ' + response.responseText);
+              });
     
 
     
@@ -60,9 +67,15 @@ function geoWatchMe() {
     output.innerHTML = "Unable to retrieve your location";
   };
 
+
+  
   output.innerHTML = "<p>Locating</p>";
 
   //navigator.geolocation.getCurrentPosition(success, error);
   
-  id = navigator.geolocation.watchPosition(success, error, geo_options);
+  var id = navigator.geolocation.watchPosition(success, error, geo_options);
 }
+
+  function clearWatch() {
+  navigator.geolocation.clearWatch(document.getElementById("watchId"));
+  }; 

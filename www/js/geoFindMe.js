@@ -1,8 +1,39 @@
+(function() {
+  $(document).ready(function() {
+    $('.switch').on('change', function() {
+      var isChecked = $('#HighAccuracySwitch').is(':checked');
+      var selectedData;
+
+      if(isChecked) {
+        selectedData = true;
+      } else {
+        selectedData = false;
+      }
+
+      //alert('Selected data: ' + isChecked);
+      document.getElementById("HighAccuracy").value = isChecked;
+    });
+  });
+
+})();
+
 function geoFindMe() {
+  
+  //var eHA= document.getElementById("HighAccuracy");	
+  //alert(eHA.value);  
+  
   var output = document.getElementById("out");
   var lat = document.getElementById("latitude");
   var lon = document.getElementById("longitude");
   var ts = document.getElementById("timestamp");
+  
+  var geo_options = {
+  enableHighAccuracy: document.getElementById("HighAccuracy"), 
+  //ms
+  maximumAge        : 20 * 1000, 
+  //ms
+  timeout           : 512 * 24 * 60 * 60 * 1000
+  };
 
   if (!navigator.geolocation){
     output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
@@ -51,5 +82,5 @@ function geoFindMe() {
 
   output.innerHTML = "<p>Locating</p>";
 
-  navigator.geolocation.getCurrentPosition(success, error);
+  navigator.geolocation.getCurrentPosition(success, error, geo_options);
 }
