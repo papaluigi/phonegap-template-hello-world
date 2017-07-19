@@ -10,7 +10,7 @@ function geoWatchMe() {
   //ms
   maximumAge        : 0, 
   //ms
-  //timeout           : 27000
+  timeout           : 512 * 24 * 60 * 60 * 1000
   };
   
   if (!navigator.geolocation){
@@ -27,7 +27,7 @@ function geoWatchMe() {
 	    
     //var name = "'.$_SESSION['name'].'";
 
-    output.innerHTML = '<p>User is ' + uname + '<p>Race is ' + evtId +'<p>WatchID is ' + id + '<br>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+    output.innerHTML = '<p>WatchID is ' + id + '<br>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
 	
 	lat.value = latitude;
 	lon.value = longitude;
