@@ -28,7 +28,7 @@ function geoFindMe() {
   var ts = document.getElementById("timestamp");
   
   var geo_options = {
-  enableHighAccuracy: true, 
+  enableHighAccuracy: document.getElementById("HighAccuracy"), 
   //ms
   maximumAge        : 20 * 1000, 
   //ms
@@ -50,10 +50,10 @@ function geoFindMe() {
 	lon.value = longitude;
 	ts.value = timestamp;
 
-    //var img = new Image();
-    //img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+    var img = new Image();
+    img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
 
-    //output.appendChild(img);
+    output.appendChild(img);
 	
 	/*uploadFileLFG();*/
 	

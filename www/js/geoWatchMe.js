@@ -9,7 +9,7 @@ function geoWatchMe() {
   
 
   var geo_options = {
-  enableHighAccuracy: true, 
+  enableHighAccuracy: document.getElementById("HighAccuracy"), 
   //ms
   maximumAge        : 20 * 1000, 
   //ms
