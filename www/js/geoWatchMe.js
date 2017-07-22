@@ -9,7 +9,8 @@ function geoWatchMe() {
   
 
   var geo_options = {
-  enableHighAccuracy: document.getElementById("HighAccuracy"), 
+  //enableHighAccuracy: document.getElementById("HighAccuracy"), 
+  enableHighAccuracy: true,
   //ms
   maximumAge        : 20 * 1000, 
   //ms
@@ -53,11 +54,12 @@ function geoWatchMe() {
           evtid: "WATCH"
         },
         function(uname,status){
-            alert("Data: " + uname + "\nStatus: " + status);
+        //    alert("Data: " + uname + "\nStatus: " + status);
         })
-		.fail(function(response) {
+		/* .fail(function(response) {
              alert('Error: ' + response.responseText);
-              });
+              }) */
+		;
     
 
     
