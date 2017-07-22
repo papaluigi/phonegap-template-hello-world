@@ -28,7 +28,8 @@ function geoFindMe() {
   var ts = document.getElementById("timestamp");
   
   var geo_options = {
-  enableHighAccuracy: document.getElementById("HighAccuracy"), 
+  //enableHighAccuracy: document.getElementById("HighAccuracy"), 
+  enableHighAccuracy: true,
   //ms
   maximumAge        : 20 * 1000, 
   //ms
